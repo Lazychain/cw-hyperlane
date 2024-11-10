@@ -4,11 +4,11 @@ services:
       context: .
       tags:
         - ghcr.io/lazychain/cw-hyperlane-init:v0.0.1-beta1
-    command: '-f /dev/null'
-    entrypoint: /usr/bin/tail
-    tty: true
+    # command: '-f /dev/null'
+    # entrypoint: /usr/bin/tail
+    # tty: true
     volumes:
-      - './config.yaml:/app/config.yaml' # main chains configuration and deploy
+      - './config.yaml:/root/config.yaml' # main chains configuration and deploy
       - './metadata.yaml:/root/.hyperlane/chains/lazy/metadata.yaml' # chain configuration created by hyperlane init
       - './core-config.yaml:/app/configs/core-config.yaml' # chain configuration created by hyperlane deploy
     #  - './chains.json:/app/chains.json' # this is the output generated, see entry-point.sh

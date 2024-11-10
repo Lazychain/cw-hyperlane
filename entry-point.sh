@@ -1,5 +1,7 @@
 CHAINID=${CHAINID:-stargaze}
 
+cp /root/config.yaml .
+
 hyperlane core deploy --chain lazy --yes
 
 echo y | yarn cw-hpl upload local -n $CHAINID
