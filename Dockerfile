@@ -17,7 +17,8 @@ RUN yarn install
 # download and unzip artifacts
 RUN curl -s -L -O https://github.com/many-things/cw-hyperlane/releases/download/v0.0.6/cw-hyperlane-v0.0.6.zip && unzip -q cw-hyperlane-v0.0.6.zip -d ./artifacts
 
-COPY ./entry-point.sh ./
-RUN chmod +x ./entry-point.sh
+RUN mkdir /app/run
+COPY ./entry-point.sh /app/run
+RUN chmod +x ./run/entry-point.sh
 
-CMD ["sh", "entry-point.sh"]
+CMD ["/bin/sh","-c","while sleep 3600; do :; done"]
